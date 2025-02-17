@@ -17,4 +17,9 @@ public class RestControllerClass {
     public ResponseEntity<?> greet(){
         return new ResponseEntity<>("hello this is spring boot application running on ecs", HttpStatusCode.valueOf(200));
     }
+
+    @GetMapping(value = "/v1/greet{name}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> greetWithName(String name){
+        return new ResponseEntity<>("hello "+name+" this is spring boot application running on ecs", HttpStatusCode.valueOf(200));
+    }
 }
